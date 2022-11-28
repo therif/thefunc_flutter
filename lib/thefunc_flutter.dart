@@ -1,4 +1,4 @@
-library thefunc_flutter;
+library thefunc_common;
 
 external int? tryParse(String source, {int? radix});
 
