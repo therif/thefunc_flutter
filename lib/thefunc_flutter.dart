@@ -1,7 +1,5 @@
 library thefunc_common;
 
-external int? tryParse(String source, {int? radix});
-
 class TheFunc {
   bool isNumeric(String s) {
     bool hasil = true;

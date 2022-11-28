@@ -26,16 +26,16 @@ Will add later...
 
 TheFunc().isNumeric("034");  
 
-Declaration :
+Declaration :  
     cvt = TheFunc();  
 
-Change Variable Type
+Change Variable Type  
     cvt.changeAs(bool, '') //return false  
     cvt.changeAs(bool, 'TRUE'); //Return true  
     cvt.changeAs(String, 'One'); //Return 'One'  
     cvt.changeAs(int, '1'); //Return 1  
 
-Check As Boolean Return
+Check As Boolean Return  
     cvt.keBoolean(''); //Return false  
     TheFunc().keBoolean(''); //Return false  
     TheFunc().keBoolean('0'); //Return false  
@@ -44,10 +44,10 @@ Check As Boolean Return
     TheFunc().keBoolean('True'); //Return true  
     TheFunc().keBoolean('true'); //Return true  
     TheFunc().keBoolean('1'); //Return true  
-  });
+  });  
 
-Permission Handle And Asking Gui on Device
-    ThePermission().requestPermission("storage");
+Permission Handle And Asking Gui on Device  
+    ThePermission().requestPermission("storage");  
 
 
 ## Additional information
