@@ -22,3 +22,16 @@ dev_dependencies:
 
 flutter:
 
+platforms:
+  android:
+  ios:
+  linux:
+  macos:
+  web:
+  windows:
+
+funding:
+ - https://github.com/sponsors/therif
+ - https://paypal.me/galonair
+ - https://saweria.co/therif
+ - https://sociabuzz.com/therif/tribe

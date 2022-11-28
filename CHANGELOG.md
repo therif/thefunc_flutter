@@ -1,3 +1,6 @@
 ## 0.0.1
 
-* TODO: Describe initial release.
+* Initial Release
+* Function isNumeric
+* Function changeAs
+* Function Call Permission on Mobile Device
