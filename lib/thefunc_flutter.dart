@@ -3,9 +3,9 @@ library thefunc_common;
 class TheFunc {
   bool isNumeric(String s) {
     bool hasil = true;
-    if (s == null) {
-      return false;
-    }
+    // if (s == null) {
+    //   return false;
+    // }
     var coba1 = double.tryParse(s);
     if (coba1 == null) {
       hasil = false;
