@@ -1,5 +1,7 @@
 library thefunc_flutter;
 
+external int? tryParse(String source, {int? radix});
+
 class TheFunc {
   bool isNumeric(String s) {
     bool hasil = true;
@@ -18,38 +20,80 @@ class TheFunc {
     return hasil;
   }
 
-  bool keBoolean(dynamic val) {
-    if (val == 1 ||
-        val == '1' ||
-        val == true ||
-        val.toString().toLowerCase() == 'true') {
-      return true;
-    } else if (val == 0 ||
-        val == '0' ||
-        val == false ||
-        val.toString().toLowerCase() == 'false') {
-      return false;
+  bool asBool(dynamic val) {
+    if (val is String) {
+      if (val == '1' || val.toString().toLowerCase() == 'true') {
+        return true;
+      } else if (val == '0' || val.toString().toLowerCase() == 'false') {
+        return false;
+      }
+    } else if (val is bool) {
+      return val;
+    } else if (val is int || val is double) {
+      if (val > 0) {
+        return true;
+      } else if (val < 1) {
+        return false;
+      }
+    }
+    return false;
+  }
+
+  int asInt(dynamic value) {
+    if (value is String) {
+      if (isNumeric(value.toString())) {
+        return int.tryParse(value)!;
+      } else {
+        return 0;
+      }
+    } else if (value is double) {
+      return value.toInt();
+    } else if (value is bool) {
+      return value == true ? 1 : 0;
     } else {
-      return false;
+      return 0;
     }
   }
 
-  dynamic changeAs(dynamic varType, dynamic value) {
-    Type tipenya = varType;
-    dynamic hasil;
-    if (tipenya == int) {
+  double asDouble(value) {
+    if (value is String) {
       if (isNumeric(value.toString())) {
-        hasil = int.parse(value);
+        return double.tryParse(value)!;
       } else {
-        hasil = 0;
+        return 0;
       }
-    } else if (tipenya == bool) {
-      hasil = keBoolean(value);
-    } else if (tipenya == String) {
-      hasil = value.toString();
+    } else if (value is int) {
+      return value.toDouble();
+    } else if (value is double) {
+      return value;
+    } else if (value is bool) {
+      return value == true ? 1 : 0;
     } else {
-      hasil = value;
+      return 0;
     }
-    return hasil;
+  }
+
+  dynamic change(Type toType, dynamic value) {
+    //int asInt({value}) {
+    if (toType == int || toType is int) {
+      return asInt(value);
+    }
+
+    //String asString(value) {
+    if (toType == String || toType is String) {
+      return value.toString();
+    }
+
+    //bool asBool(value) {
+    if (toType == bool || toType is bool) {
+      return asBool(value);
+    }
+
+    //double? asDouble(value) {
+    if (toType == double || toType is double) {
+      return asDouble(value);
+    }
+
+    return null;
   }
 }
